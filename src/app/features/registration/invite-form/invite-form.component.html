@@ -1,0 +1,109 @@
+<div class="container">
+    <form class="invite-form"
+    [formGroup]="form"
+     (ngSubmit)="onSubmit()">
+        <div class="invite-basic-info">
+            <!-- FIRST NAME -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>First Name</mat-label>
+                <input formControlName="fName"
+                matInput
+                placeholder="First Name">
+                @if (form.controls['fName'].hasError('required')) {
+                    <mat-error>First Name is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <!-- MIDDLE NAME -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Middle Name</mat-label>
+                <input formControlName="mName" 
+                matInput 
+                placeholder="Middle Name">
+            </mat-form-field>
+            <!-- LAST NAME -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lName" 
+                matInput
+                placeholder="Last Name">
+                @if (form.controls['lName'].hasError('required')) {
+                    <mat-error>Last Name is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <!-- GENDER -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+                </mat-select>
+                @if (form.controls['gender'].hasError('required')) {
+                    <mat-error>Gender is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <!-- BIRTHDAY -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Birthday</mat-label>
+                <input readonly 
+                [matDatepicker]="picker"
+                formControlName="birthday"
+                matInput
+                placeholder="MM/DD/YYYY">
+                @if (form.controls['birthday'].hasError('required')) {
+                    <mat-error>Birthday is <strong>required</strong></mat-error>
+                }
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!-- AGE -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Age</mat-label>
+                <input 
+                formControlName="age"
+                matInput
+                placeholder="Age">
+                @if (form.controls['age'].hasError('required')) {
+                    <mat-error>Age is <strong>required</strong></mat-error>
+                } @else if (!form.controls['age'].hasError('required') && form.controls['age'].hasError('pattern')) {
+                    <mat-error>Please enter a <strong>valid</strong> age</mat-error>
+                }
+            </mat-form-field>
+            <!-- CONTACT NUMBER -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Contact No.</mat-label>
+                <span matTextPrefix>+63 &nbsp;</span>
+                <input formControlName="contact"
+                maxlength="10"
+                matInput
+                placeholder="91234567890">
+                @if (!form.controls['contact'].hasError('minLength') || form.controls['contact'].hasError('pattern')) {
+                    <mat-error>Please enter a <strong>valid</strong> contact number</mat-error>
+                }
+            </mat-form-field>
+            <!-- EMAIL -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" type="email" matInput placeholder="Email">
+                @if (form.controls['email'].hasError('email')) {
+                    <mat-error>Please provide a <strong>valid</strong> email</mat-error>
+                }
+            </mat-form-field>
+            <!-- SOCIAL MEDIA ACCOUNT -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Social Media Acc (ex. FB Name)</mat-label>
+                <input formControlName="socMed" matInput placeholder="Social Media Acc (ex. FB Name)">
+            </mat-form-field>
+            <!-- HOME ADDRESS -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Home Address</mat-label>
+                <input formControlName="address" matInput placeholder="Home Address">
+            </mat-form-field>
+            <!-- SCHOOL NAME -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>School/University</mat-label>
+                <input formControlName="school" matInput placeholder="School/University">
+            </mat-form-field>
+            
+            <button mat-flat-button class="submit-button" color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+        </div>
+    </form>
+</div>

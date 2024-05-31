@@ -1,0 +1,6 @@
+<mat-toolbar class="toolbar" [ngClass]="{ 'scrolled': isScrolled }">
+    <span class="app-title" [ngClass]="{ 'scrolled': isScrolled }">Elevate DGM</span>
+    <div class="header-tabs">
+        <span *ngFor="let pageName of pageNames" (click)="navigateToPage($event)" class="page-title" [ngClass]="{ 'scrolled': isScrolled }"> {{ pageName }} </span>
+    </div>
+</mat-toolbar>

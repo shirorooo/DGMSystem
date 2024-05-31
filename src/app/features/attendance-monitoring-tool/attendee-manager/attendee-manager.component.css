@@ -1,0 +1,16 @@
+.attendee-table-container{
+    margin: 20px;
+    border: 0.5px rgba(0, 0, 0, 0.158) solid !important;
+    box-shadow: 10px 6px 5px 0px rgba(0,0,0,0.66);
+    -webkit-box-shadow: 10px 6px 5px 0px rgba(0,0,0,0.66);
+    -moz-box-shadow: 10px 6px 5px 0px rgba(0,0,0,0.66);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.attendee-table{
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+

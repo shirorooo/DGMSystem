@@ -1,0 +1,26 @@
+.regulars-form{
+    border: 0.5px rgba(0, 0, 0, 0.158) solid !important;
+    background-color: white;
+    border-radius: 20px;
+    width: 500px;
+    box-shadow: 10px 6px 5px 0px rgba(0,0,0,0.66);
+    -webkit-box-shadow: 10px 6px 5px 0px rgba(0,0,0,0.66);
+    -moz-box-shadow: 10px 6px 5px 0px rgba(0,0,0,0.66);
+}
+
+.regular-search-form{
+    margin: 10px;
+    padding-top: 10px;
+}
+
+.attendee-field{
+    width: 100%;
+}
+
+.submit-button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: 20px;
+ }

@@ -1,0 +1,50 @@
+.toolbar{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure the toolbar is above other elements */
+    transition: background-color 0.5s ease;
+}
+
+.toolbar.scrolled{
+    background-color: #ffc6c6;
+}
+
+.app-title{
+    color: #b7003c;
+    font-weight: 600;
+    font-size: smaller;
+}
+
+.app-title.scrolled{
+    color: #e4234d;
+    font-weight: 600;
+    font-size: smaller;
+}
+
+.header-tabs{
+    padding-left: 30px;
+}
+
+.header-tabs .page-title{
+    padding: 10px;
+    color: #b7003c;
+    font-weight: 500;
+    font-size: smaller;
+}
+
+.header-tabs .page-title.scrolled{
+    padding: 10px;
+    color: #e4234d;
+    font-weight: 500;
+    font-size: smaller;
+}
+
+.header-tabs .page-title:hover{
+    cursor: pointer;
+    background-color: #e4234d;
+    color: #ffc6c6;
+    border-radius: 30px;
+}

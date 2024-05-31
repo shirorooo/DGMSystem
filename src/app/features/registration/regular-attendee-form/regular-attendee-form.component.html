@@ -1,0 +1,22 @@
+<div class="container">
+    <form class="regulars-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="regular-search-form">
+            <mat-form-field appearance="outline" class="attendee-field">
+                <mat-label>Search Attendee</mat-label>
+                <input (input)="onInputChange($event)"
+                    formControlName="attendee"
+                    placeholder="Search Attendee"
+                    matInput
+                    [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let name of filteredNames" [value]="name">{{name}}</mat-option>
+                </mat-autocomplete>
+                @if (form.controls['attendee'].hasError('required')) {
+                    <mat-error>Please enter a name</mat-error>
+                }
+              </mat-form-field>
+
+              <button mat-flat-button class="submit-button" color="primary" type="submit" [disabled]="form.invalid">Check In</button>
+        </div>
+    </form>
+</div>
