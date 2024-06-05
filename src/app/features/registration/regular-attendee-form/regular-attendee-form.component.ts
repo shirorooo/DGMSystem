@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ElevateAttendeeService } from '../../../apis/elevate-attendee.service';
+import { ElevateAttendeeService } from '../../../apis/elevate-attendee/elevate-attendee.service';
 import { ElevateAttendeeProfile } from '../../../core/models/interfaces/elevate-attendee-profile.interface';
 
 @Component({

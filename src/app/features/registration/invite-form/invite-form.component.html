@@ -13,6 +13,7 @@
                     <mat-error>First Name is <strong>required</strong></mat-error>
                 }
             </mat-form-field>
+
             <!-- MIDDLE NAME -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Middle Name</mat-label>
@@ -20,6 +21,7 @@
                 matInput 
                 placeholder="Middle Name">
             </mat-form-field>
+
             <!-- LAST NAME -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Last Name</mat-label>
@@ -30,6 +32,7 @@
                     <mat-error>Last Name is <strong>required</strong></mat-error>
                 }
             </mat-form-field>
+
             <!-- GENDER -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Gender</mat-label>
@@ -40,6 +43,7 @@
                     <mat-error>Gender is <strong>required</strong></mat-error>
                 }
             </mat-form-field>
+
             <!-- BIRTHDAY -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Birthday</mat-label>
@@ -54,6 +58,7 @@
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
+
             <!-- AGE -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Age</mat-label>
@@ -67,6 +72,7 @@
                     <mat-error>Please enter a <strong>valid</strong> age</mat-error>
                 }
             </mat-form-field>
+
             <!-- CONTACT NUMBER -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Contact No.</mat-label>
@@ -75,32 +81,46 @@
                 maxlength="10"
                 matInput
                 placeholder="91234567890">
-                @if (!form.controls['contact'].hasError('minLength') || form.controls['contact'].hasError('pattern')) {
+                @if (form.controls['contact'].hasError('required')) {
+                    <mat-error>Contact number is <strong>required</strong></mat-error>
+                } @else if (!form.controls['contact'].hasError('minLength') || form.controls['contact'].hasError('pattern')) {
                     <mat-error>Please enter a <strong>valid</strong> contact number</mat-error>
                 }
             </mat-form-field>
+
             <!-- EMAIL -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Email</mat-label>
                 <input formControlName="email" type="email" matInput placeholder="Email">
-                @if (form.controls['email'].hasError('email')) {
+                @if (form.controls['email'].hasError('required')) {
+                    <mat-error>Email is <strong>required</strong></mat-error>
+                } @else if (form.controls['email'].hasError('email')) {
                     <mat-error>Please provide a <strong>valid</strong> email</mat-error>
                 }
             </mat-form-field>
+
             <!-- SOCIAL MEDIA ACCOUNT -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Social Media Acc (ex. FB Name)</mat-label>
                 <input formControlName="socMed" matInput placeholder="Social Media Acc (ex. FB Name)">
             </mat-form-field>
+
             <!-- HOME ADDRESS -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>Home Address</mat-label>
                 <input formControlName="address" matInput placeholder="Home Address">
             </mat-form-field>
+
             <!-- SCHOOL NAME -->
             <mat-form-field appearance="outline" class="info-field">
                 <mat-label>School/University</mat-label>
                 <input formControlName="school" matInput placeholder="School/University">
+            </mat-form-field>
+
+            <!-- DGROUP LEADER -->
+            <mat-form-field appearance="outline" class="info-field">
+                <mat-label>Dgroup Leader</mat-label>
+                <input formControlName="dgroupLeader" matInput placeholder="Dgroup Leader">
             </mat-form-field>
             
             <button mat-flat-button class="submit-button" color="primary" type="submit" [disabled]="form.invalid">Submit</button>
