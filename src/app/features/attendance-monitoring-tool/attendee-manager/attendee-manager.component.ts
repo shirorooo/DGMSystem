@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ElevateAttendeeService } from '../../../apis/elevate-attendee.service';
+import { ElevateAttendeeService } from '../../../apis/elevate-attendee/elevate-attendee.service';
 import { ElevateAttendeeProfile } from '../../../core/models/interfaces/elevate-attendee-profile.interface';
 
 @Component({

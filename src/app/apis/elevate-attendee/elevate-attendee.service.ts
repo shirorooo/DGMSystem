@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ElevateAttendeeProfile } from '../core/models/interfaces/elevate-attendee-profile.interface';
+import { ElevateAttendeeProfile } from '../../core/models/interfaces/elevate-attendee-profile.interface';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

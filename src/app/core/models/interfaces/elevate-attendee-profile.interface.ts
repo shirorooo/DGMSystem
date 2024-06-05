@@ -4,7 +4,7 @@ export interface ElevateAttendeeProfile {
     gender: string,
     birthday: string,
     age: number,
-    contactNo: string,
+    contactNo?: string,
     address: string,
     email?: string,
     fbName?: string,
