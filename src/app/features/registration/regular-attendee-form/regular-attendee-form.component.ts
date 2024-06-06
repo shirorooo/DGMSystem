@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ElevateAttendeeService } from '../../../apis/elevate-attendee/elevate-attendee.service';
 import { ElevateAttendeeProfile } from '../../../core/models/interfaces/elevate-attendee-profile.interface';
+import { IsoDateFormatterService } from '../../../core/models/services/iso-date-formatter/iso-date-formatter.service';
+import { ElevateAttendance } from '../../../core/models/interfaces/elevate-attendance';
+import { ElevateAttendanceService } from '../../../apis/elevate-attendance/elevate-attendance.service';
 
 @Component({
   selector: 'app-regular-attendee-form',
@@ -14,10 +17,13 @@ export class RegularAttendeeFormComponent {
   filteredNames: string[] = []
   attendeesList: ElevateAttendeeProfile[] = []
   form: FormGroup
+  noRecordsFound: boolean = false
 
   constructor(
     private _elevateAttendeeService: ElevateAttendeeService,
+    private _elevateAttendanceService: ElevateAttendanceService,
     private _formBuilder: FormBuilder,
+    private _isoFormatter: IsoDateFormatterService
   ){
     this.form = this._formBuilder.group({
       attendee: ['', [Validators.required]]
@@ -55,6 +61,33 @@ export class RegularAttendeeFormComponent {
   //TODO: SEARCH FROM DATABASE
   public onSubmit(): void{
     const attendeeName = this.form.controls['attendee'].value
-    console.log(attendeeName)
+    this._elevateAttendeeService.getAttendeeRecordByName(attendeeName).subscribe(
+      data => this.addAttendanceRecord(data),
+      error => {
+        if(error.status == 404) this.noRecordsFound = true
+        console.error('Error', error)
+      }
+    )
+  }
+
+  public addAttendanceRecord(attendee: ElevateAttendeeProfile): void{
+    const isoFormat = this._isoFormatter.formatter()
+
+    const elevateAttendance: ElevateAttendance = {
+      id: 0,
+      name: attendee.name,
+      attendanceDate: isoFormat,
+      gender: attendee.gender,
+      age: attendee.age,
+      contactNo: attendee.contactNo,
+      school: attendee.school,
+      dgroupLeader: attendee.dgroupLeader,
+      firstTimer: "No"
+    }
+
+    this._elevateAttendanceService.addAttendanceRecord(elevateAttendance).subscribe(
+      response => console.log('Attendance response', response),
+      error => console.error('Attendance Error', error)
+    )
   }
 }

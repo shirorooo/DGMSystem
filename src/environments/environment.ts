@@ -5,4 +5,5 @@ export const environment = {
     //ENDPOINTS
     attendeeEndpoint: '/attendee',
     attendanceEndpoint: '/attendance',
+    schoolEndpoint: '/school',
   };

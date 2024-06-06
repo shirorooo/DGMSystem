@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ElevateAttendeeService } from '../../../apis/elevate-attendee/elevate-attendee.service';
 import { ElevateAttendeeProfile } from '../../../core/models/interfaces/elevate-attendee-profile.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-attendee-manager',
@@ -18,12 +19,14 @@ export class AttendeeManagerComponent{
     'address',
     'email',
     'school',
-    'dgroup-leader'
+    'dgroup-leader',
+    'profile'
   ]
   attendeeList: ElevateAttendeeProfile[] = []
 
   constructor(
-    private _elevateAttendeeService: ElevateAttendeeService
+    private _elevateAttendeeService: ElevateAttendeeService,
+    private _router: Router
   ){}
 
   ngOnInit(): void {
@@ -35,6 +38,10 @@ export class AttendeeManagerComponent{
       data => this.attendeeList = data,
       error => console.error('Error', error)
     )
+  }
+
+  public openProfile(name: string): void{
+    this._router.navigate(['profile', name])
   }
 
 }

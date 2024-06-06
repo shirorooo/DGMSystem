@@ -113,8 +113,10 @@
 
             <!-- SCHOOL NAME -->
             <mat-form-field appearance="outline" class="info-field">
-                <mat-label>School/University</mat-label>
-                <input formControlName="school" matInput placeholder="School/University">
+                <mat-label>School Name</mat-label>
+                <mat-select formControlName="school">
+                    <mat-option *ngFor="let school of schools" [value]="school.schoolName">{{school.schoolName}}</mat-option>
+                </mat-select>
             </mat-form-field>
 
             <!-- DGROUP LEADER -->
@@ -123,6 +125,13 @@
                 <input formControlName="dgroupLeader" matInput placeholder="Dgroup Leader">
             </mat-form-field>
             
+            @if(recordCreated){
+                <mat-error><strong>SUCCESS!</strong> profile is now in database .</mat-error>
+            }
+
+            @if (recordExist) {
+                <mat-error><strong>Error!</strong> Record <strong>ALREADY</strong> exist</mat-error>
+            }
             <button mat-flat-button class="submit-button" color="primary" type="submit" [disabled]="form.invalid">Submit</button>
         </div>
     </form>

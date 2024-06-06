@@ -1,1 +1,57 @@
-<p>elevate-attendance works!</p>
+<div class="attendee-table-container">
+    <table mat-table
+        [dataSource]="attendanceList"
+        class="mat-elevation-z8 attendee-table">
+
+        <!-- ID NUMBER COLUMN -->
+        <ng-container matColumnDef="id-no">
+        <th mat-header-cell *matHeaderCellDef> ID No. </th>
+        <td mat-cell *matCellDef="let attendee"> {{attendee.id}} </td>
+        </ng-container>
+    
+        <!-- NAME COLUMN -->
+        <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let attendee"> {{attendee.name}} </td>
+        </ng-container>
+    
+        <!-- GENDER COLUMN -->
+        <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let attendee"> {{attendee.gender}} </td>
+        </ng-container>
+
+        <!-- AGE COLUMN -->
+        <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef> Age </th>
+            <td mat-cell *matCellDef="let attendee"> {{attendee.age}} </td>
+        </ng-container>
+
+        <!-- CONTACT NUMBER COLUMN -->
+        <ng-container matColumnDef="contact-no">
+            <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+            <td mat-cell *matCellDef="let attendee"> {{attendee.contactNo}} </td>
+        </ng-container>
+
+        <!-- SCHOOL COLUMN -->
+        <ng-container matColumnDef="school">
+            <th mat-header-cell *matHeaderCellDef> School </th>
+            <td mat-cell *matCellDef="let attendee"> {{attendee.school}} </td>
+        </ng-container>
+
+        <!-- DGROUP LEADER COLUMN -->
+        <ng-container matColumnDef="dgroup-leader">
+            <th mat-header-cell *matHeaderCellDef> Dgroup Leader </th>
+            <td mat-cell *matCellDef="let attendee"> {{attendee.dgroupLeader}} </td>
+        </ng-container>
+
+        <!-- FIRST TIMER COLUMN -->
+        <ng-container matColumnDef="first-timer">
+            <th mat-header-cell *matHeaderCellDef> First Timer </th>
+            <td mat-cell *matCellDef="let attendee"> {{attendee.firstTimer}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+  </table>
+</div>

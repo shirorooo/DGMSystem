@@ -29,6 +29,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import { AttendeeProfileComponent } from './features/attendance-monitoring-tool/attendee-manager/attendee-profile/attendee-profile.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import {MatTableModule} from '@angular/material/table';
     RegularAttendeeFormComponent,
     ElevateAttendanceComponent,
     AttendeeManagerComponent,
+    AttendeeProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import {MatTableModule} from '@angular/material/table';
     MatAutocompleteModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
   ],
   providers: [
     provideClientHydration(),

@@ -16,6 +16,10 @@
                 }
               </mat-form-field>
 
+                @if (noRecordsFound) {
+                    <mat-error>No records found</mat-error>
+                }
+                
               <button mat-flat-button class="submit-button" color="primary" type="submit" [disabled]="form.invalid">Check In</button>
         </div>
     </form>

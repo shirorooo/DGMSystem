@@ -19,8 +19,8 @@ export class ElevateAttendeeService {
   }
 
   // GET ATTENDEE RECORD USING ID
-  getAttendeeRecordById(id: number): Observable<ElevateAttendeeProfile>{
-    return this._http.get<ElevateAttendeeProfile>(`${environment.apiUrl}${environment.attendeeEndpoint}/${id}`)
+  getAttendeeRecordByName(name: string): Observable<ElevateAttendeeProfile>{
+    return this._http.get<ElevateAttendeeProfile>(`${environment.apiUrl}${environment.attendeeEndpoint}/${name}`)
   }
 
   // ADD PERSON PROFILE
