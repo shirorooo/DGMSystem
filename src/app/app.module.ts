@@ -17,6 +17,7 @@ import { RegularAttendeeFormComponent } from './features/registration/regular-at
 import { ElevateAttendanceComponent } from './features/attendance-monitoring-tool/elevate-attendance/elevate-attendance.component';
 import { AttendeeManagerComponent } from './features/attendance-monitoring-tool/attendee-manager/attendee-manager.component';
 import {provideNativeDateAdapter} from '@angular/material/core';
+import { AttendeeProfileComponent } from './features/attendance-monitoring-tool/attendee-manager/attendee-profile/attendee-profile.component';
 
 
 //ANGULAR MATERIAL
@@ -30,7 +31,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
-import { AttendeeProfileComponent } from './features/attendance-monitoring-tool/attendee-manager/attendee-profile/attendee-profile.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { AttendeeProfileComponent } from './features/attendance-monitoring-tool/
     MatSelectModule,
     MatDatepickerModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [
     provideClientHydration(),
